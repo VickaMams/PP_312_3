@@ -52,7 +52,7 @@ public class MyController {
     @PostMapping("/admin/update/{id}")
     public String updateUser(@ModelAttribute("user") User user, @RequestParam(value = "role") String role) {
         user.setRoles(roleService.findRolesByName(role));
-        userService.saveUser(user);
+        userService.updateUser(user);
         return "redirect:/admin";
     }
 

@@ -131,7 +131,7 @@
                                                                     <strong><label
                                                                             for="ePassword">Password</label></strong>
                                                                     <input type="password" class="form-control"
-                                                                           th:value="user.password" id="ePassword"
+                                                                           th:value="${user.password}" id="ePassword"
                                                                            name="password" data-toggle="password">
                                                                     <br/>
 
@@ -140,11 +140,12 @@
 
                                                                             id="editRole" name="role"
 
-                                                                    >
+                                                                            size="2" required>
                                                                         <option
                                                                                 th:each="role : ${roles}"
-                                                                                th:value="${role.name}"
-                                                                                th:text="${role.getAuthority()}">
+                                                                                th:value="${role.name}" th:selected="${user.roles.contains(role)}">
+                                                                            <th:block th:text="${role.getAuthority()}">
+                                                                            </th:block>
                                                                         </option>
                                                                     </select>
                                                                 </div>
